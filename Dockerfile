@@ -12,7 +12,7 @@ RUN apt-get update && \
 
 COPY awscliv2.zip .
 
-RUN unzip awscliv2.zip && \
+RUN unzip awscliv2.zip > /dev/null && \
     ./aws/install && \
     rm -rf awscliv2.zip ./aws
 
@@ -24,3 +24,4 @@ ENV PATH="/usr/local/bin/aws:${PATH}"
 # RUN apt-get clean
     # rm -rf /var/lib/apt/lists/*
 ENTRYPOINT ["/usr/local/bin/tfc-agent"]
+

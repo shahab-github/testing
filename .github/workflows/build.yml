@@ -19,3 +19,4 @@ jobs:
     - name: build docker image
       run: |
         docker build -t mytfe:1.0 .
+        docker images | grep -i mytfe
