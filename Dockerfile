@@ -21,6 +21,6 @@ USER tfc
 FROM hashicorp/tfc-agent
 COPY --from=builder /usr/local/bin/aws /usr/local/bin/aws
 ENV PATH="/usr/local/bin/aws:${PATH}"
-RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get clean
+    # rm -rf /var/lib/apt/lists/*
 ENTRYPOINT ["/usr/local/bin/tfc-agent"]
